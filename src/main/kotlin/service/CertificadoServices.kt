@@ -1,18 +1,13 @@
 package org.portifolio.service
 
 import jakarta.enterprise.context.ApplicationScoped
-import org.portifolio.model.Certificado
+import org.portifolio.repository.CertificadoRepository
+import org.portifolio.repository.model.Certificado
 
 @ApplicationScoped
-class CertificadoServices {
+class CertificadoServices(
+    private val certificadoRepository: CertificadoRepository
+) {
 
-    fun getCertificados(): List<Certificado> {
-        val certifificados = mutableListOf<Certificado>()
-        val certificado = Certificado(id = 1, titulo = "Título teste", url = "www.com.br")
-        certifificados.add(certificado)
-
-        val listaCertificados = certifificados
-
-        return listaCertificados
-    }
+    fun getCertificados(): List<Certificado> = certificadoRepository.listAll()
 }
