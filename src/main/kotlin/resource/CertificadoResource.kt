@@ -3,6 +3,7 @@ package org.portifolio.resource
 import jakarta.ws.rs.GET
 import jakarta.ws.rs.Path
 import jakarta.ws.rs.Produces
+import jakarta.ws.rs.QueryParam
 import jakarta.ws.rs.core.MediaType
 import org.portifolio.service.CertificadoServices
 
@@ -14,6 +15,7 @@ class CertificadoResource(
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/listar")
-    fun getCertificados() = certificadoService.getCertificados()
+    fun getCertificados(@QueryParam("pagina") pagina: Int = 0, @QueryParam("tamanho") tamanho: Int = 10)
+        = certificadoService.getCertificados(pagina, tamanho)
 
 }
