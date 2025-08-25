@@ -31,6 +31,8 @@ dependencies {
     implementation("io.quarkus:quarkus-hibernate-orm-panache")
     implementation("io.quarkus:quarkus-jdbc-postgresql")
 
+    implementation("com.google.firebase:firebase-admin:9.2.0")
+
 }
 
 java {
