@@ -19,9 +19,6 @@ data class Certificado(
     @Column(name = "ds_titulo", nullable = false)
     val titulo: String = "",
 
-    @Column(name = "ds_url", nullable = false)
-    val url: String = "",
-
     @Column(name = "ds_plataforma", nullable = false)
     val plataforma: String = ""
 

@@ -18,7 +18,7 @@ class CertificadoResource(
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/listar")
-    fun getCertificados(@QueryParam("pagina") pagina: Int = 0, @QueryParam("tamanho") tamanho: Int = 10)
+    fun getCertificados(@QueryParam("pagina") pagina: Int = 0, @QueryParam("tamanho") tamanho: Int = 1)
         = certificadoService.getCertificados(pagina, tamanho)
 
     @GET

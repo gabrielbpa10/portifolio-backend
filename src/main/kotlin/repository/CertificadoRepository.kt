@@ -1,7 +1,6 @@
 package org.portifolio.repository
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository
-import io.quarkus.panache.common.Page
 import jakarta.enterprise.context.ApplicationScoped
 import org.portifolio.repository.dto.PaginatedResponse
 import org.portifolio.repository.model.Certificado
