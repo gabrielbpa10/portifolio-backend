@@ -15,8 +15,9 @@ class FirebaseConfig {
     fun init() {
         if (FirebaseApp.getApps().isEmpty()) {
             val serviceAccount = this::class.java.classLoader
-                .getResourceAsStream("firebase-service-account.json")
-                ?: throw IllegalStateException("Arquivo firebase-service-account.json não encontrado em resources!")
+//                .getResourceAsStream("firebase-service-account.json")
+                .getResourceAsStream("FIREBASE_CREDENTIALS_JSON")
+                ?: throw IllegalStateException("Arquivo FIREBASE_CREDENTIALS_JSON não encontrado em resources!")
 
             val options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
