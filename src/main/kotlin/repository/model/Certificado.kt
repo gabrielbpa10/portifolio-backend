@@ -9,7 +9,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table(name = "tb_configuracao_certificado", schema = "portifolio")
+@Table(name = "tb_configuracao_certificado", schema = "dbo")
 data class Certificado(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
