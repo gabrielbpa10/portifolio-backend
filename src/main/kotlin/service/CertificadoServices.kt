@@ -3,8 +3,8 @@ package org.portifolio.service
 import jakarta.enterprise.context.ApplicationScoped
 import org.portifolio.repository.CertificadoRepository
 import org.portifolio.repository.dto.PaginatedResponse
-import org.portifolio.repository.model.Certificado
 import com.google.firebase.cloud.StorageClient
+import org.portifolio.repository.dto.CertificadoDTO
 import java.io.ByteArrayInputStream
 
 @ApplicationScoped
@@ -12,7 +12,7 @@ class CertificadoServices(
     private val certificadoRepository: CertificadoRepository
 ) {
 
-    fun getCertificados(pagina: Int, tamanho: Int): PaginatedResponse<Certificado> {
+    fun getCertificados(pagina: Int, tamanho: Int): PaginatedResponse<CertificadoDTO> {
         val resultado = certificadoRepository.getListagemPaginado(pagina, tamanho)
         return resultado
     }

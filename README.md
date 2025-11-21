@@ -13,6 +13,8 @@ Aplicação desenvolvida para gerenciar as regras de negócio do meu portifólio
 
 - [@gabrielbpa10](https://github.com/gabrielbpa10)
 
+## Comando gerar jar
+./gradlew build -Dquarkus.package.type=uber-jar
 
 ## Licença
 
