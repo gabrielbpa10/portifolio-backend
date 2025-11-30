@@ -1,0 +1,34 @@
+name: Deploy portifolio-backend
+run-name: Trigger executada por ${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Dar permissão ao Gradle
+        run: chmod +x gradlew
+
+      - name: Build do projeto com Gradle (Quarkus Uber-Jar)
+        run: ./gradlew clean build -Dquarkus.package.type=uber-jar
+
+      - name: Deploy no Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: build/portifolio-backend-1.0.0-SNAPSHOT-runner.jar
